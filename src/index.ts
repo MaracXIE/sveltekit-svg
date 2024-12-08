@@ -4,6 +4,7 @@ import path from 'path'
 import { compile } from 'svelte/compiler'
 import { optimize, type Config } from 'svgo'
 import type { Plugin } from 'vite'
+import micromatch from 'micromatch';
 
 const { readFile } = promises
 
@@ -163,8 +164,8 @@ function readSvg(options: Options = { type: 'component' }): Plugin {
 
     if (options.includePaths) {
       return options.includePaths.some((pattern) => {
-        return id.startsWith(pattern)
-      })
+        return micromatch.isMatch(id, pattern);
+      });
     }
 
     return true
