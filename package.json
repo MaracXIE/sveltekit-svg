@@ -24,7 +24,8 @@
     "clean": "rimraf dist && rimraf node_modules",
     "clean:test-app": "rimraf test-app/node_modules && rimraf test-app/build && rimraf test-app/test-results",
     "clean:all": "npm run clean:test-app && npm run clean",
-    "bootstrap": "npm ci && cd test-app && npm ci"
+    "bootstrap": "npm ci && cd test-app && npm ci",
+    "prepare": "npm run build"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
